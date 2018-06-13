@@ -45,7 +45,8 @@ wikit-
 。。。。。。
 
 4、css优先级
-5、布局模式
+5、布局模式（重点）
 css3中的BFC,IFC,GFC和FFC
+
 
 

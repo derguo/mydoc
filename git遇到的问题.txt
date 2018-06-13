@@ -1,4 +1,5 @@
 问题：
+情况一push的时候：
 $ git push duiOrigin master
 
 To github.com:derguo/dui.git
@@ -9,12 +10,23 @@ hint: its remote counterpart. Integrate the remote changes (e.g.
 hint: 'git pull ...') before pushing again.
 hint: See the 'Note about fast-forwards' in 'git push --help' for details.
 
+情况二pull的时候：
+$ git pull git@github.com:derguo/dui.git
+warning: no common commits
+remote: Counting objects: 72, done.
+remote: Compressing objects: 100% (50/50), done.
+remote: Total 72 (delta 19), reused 52 (delta 11), pack-reused 0
+Unpacking objects: 100% (72/72), done.
+From github.com:derguo/dui
+ * branch            HEAD       -> FETCH_HEAD
+fatal: refusing to merge unrelated histories
+
 
 原因：本地仓库在练习的时候被删除重新创建过，远程仓库和本地仓库 不是同一个仓库 需要合并才能提交，拉取也不能拉取到文件
 解决办法：（具体意思没明白，还需要看看属性的意思）
 $ git pull duiOrigin master --allow-unrelated-histories
 $ git pull duiOrigin master --allow
-
+--------------------------------------------------------------------------------------------------------------------
 
 问题
 $ git pull

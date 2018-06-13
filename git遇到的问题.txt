@@ -1,0 +1,28 @@
+问题：
+$ git push duiOrigin master
+
+To github.com:derguo/dui.git
+ ! [rejected]        master -> master (non-fast-forward)
+error: failed to push some refs to 'git@github.com:derguo/dui.git'
+hint: Updates were rejected because the tip of your current branch is behind
+hint: its remote counterpart. Integrate the remote changes (e.g.
+hint: 'git pull ...') before pushing again.
+hint: See the 'Note about fast-forwards' in 'git push --help' for details.
+
+
+原因：本地仓库在练习的时候被删除重新创建过，远程仓库和本地仓库 不是同一个仓库 需要合并才能提交，拉取也不能拉取到文件
+解决办法：（具体意思没明白，还需要看看属性的意思）
+$ git pull duiOrigin master --allow-unrelated-histories
+$ git pull duiOrigin master --allow
+
+
+问题
+$ git pull
+fatal: No remote repository specified.  Please, specify either a URL or a
+remote name from which new revisions should be fetched.
+(没有指定远程存储库。请指定URL或从中获取新修订的远程名称。)
+原因 拉取需要远程分支和本地分支绑定
+解决办法：关联远程和本地分支
+[branch "master"]
+	remote = duiOrigin
+	merge = refs/heads/master
